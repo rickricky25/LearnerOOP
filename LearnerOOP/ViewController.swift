@@ -14,17 +14,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var learnerNameLabel: UILabel!
     
     var learnerInstance: LearnerModel?
+    var facilitatorInstance: FacillitatorModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         learnerInstance = LearnerModel(nameLearner: "Ricky", ageLearner: 21, genderLearner: "Male", imageProfileLearner: "")
+        facilitatorInstance = FacillitatorModel(facilName: "Henry", facilAge: 40, facilGender: "Male", facilProfile: "", facilPerk: "Marketing")
         
         updateUI()
         
     }
     
     func updateUI() {
-        if let instance = learnerInstance {
+        if let instance = facilitatorInstance {
             learnerNameLabel.text = instance.name
             learnerAgeLabel.text = "\(instance.age)"
             learnerGenderLabel.text = instance.gender
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnAgePress(_ sender: Any) {
-        if let instance = learnerInstance {
+        if let instance = facilitatorInstance {
             instance.increaseAge()
         }
         updateUI()
